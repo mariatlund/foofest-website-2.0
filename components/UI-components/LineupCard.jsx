@@ -1,13 +1,12 @@
 import React from "react";
 
-function LineupCard() {
+function LineupCard({ name, genre }) {
   return (
     <article className="lineup-card">
       <div className="lineup-card-titles">
-        <h3>Band name</h3>
-        <h4>Day X</h4>
+        <h3>{name}</h3>
+        {/* <h4>{genre}</h4> */}
       </div>
-      <p>Description goes here</p>
     </article>
   );
 }
