@@ -7,6 +7,20 @@ import { Accordion, AccordionItem, AccordionItemHeading, AccordionItemButton, Ac
 import { useRef } from "react";
 import { useRouter } from "next/router";
 
+// VALIDATION LINKS:
+// https://learnetto.com/blog/react-form-validation
+// chrome-extension://efaidnbmnnnibpcajpcglclefindmkaj/https://fileadmin.cs.lth.se/cs/Education/EDAF90/lectures/l5.edaf90.pdf
+// https://developer.mozilla.org/en-US/docs/Web/HTML/Constraint_validation
+
+// DONE
+// - Changed onClick to onSubmit - with e.preventdefault() it now performs the validation as needed, not rerouting the user until the form is valid
+// - Added max length to phone number
+
+// TO DO
+// - Add feedback/highlight to accordion panels when something is not filled out correctly in a closed panel (basic html validation does not show when they are closed)
+// - Have 1st panel open by default (?)
+// - Add scroll to order interface (left side) so when 5 accordions are open it doesn't look stupid
+
 function step3(props) {
   // order overview responsiveness
   const matches = useMediaQuery("(min-width: 1100px)");
@@ -82,7 +96,7 @@ function step3(props) {
                     </label>
                     <label>
                       Phone Number
-                      <input title="Must be a valid phone number" required pattern="[0-9+]{8,18}" aria-required="true" type="text" name="telephone" placeholder="+45 12345678" />
+                      <input title="Must be a valid phone number" required pattern="[0-9+]{8,18}" aria-required="true" type="text" name="telephone" placeholder="42386489" maxLength={8} />
                     </label>
                     <label>
                       Date of Birth
@@ -103,7 +117,7 @@ function step3(props) {
           <button className="secondary" onClick={goBack}>
             Back
           </button>
-          <button type="submit" className="primary" onClick={submit}>
+          <button type="submit" className="primary" onSubmit={submit}>
             Continue to payment →
           </button>
         </div>
