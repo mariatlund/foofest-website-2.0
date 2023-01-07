@@ -10,6 +10,7 @@ import { useRouter } from "next/router";
 // VALIDATION LINKS:
 // https://learnetto.com/blog/react-form-validation
 // chrome-extension://efaidnbmnnnibpcajpcglclefindmkaj/https://fileadmin.cs.lth.se/cs/Education/EDAF90/lectures/l5.edaf90.pdf
+// https://developer.mozilla.org/en-US/docs/Web/HTML/Constraint_validation
 
 // DONE
 // - Changed onClick to onSubmit - with e.preventdefault() it now performs the validation as needed, not rerouting the user until the form is valid
@@ -18,6 +19,7 @@ import { useRouter } from "next/router";
 // TO DO
 // - Add feedback/highlight to accordion panels when something is not filled out correctly in a closed panel (basic html validation does not show when they are closed)
 // - Have 1st panel open by default (?)
+// - Add scroll to order interface (left side) so when 5 accordions are open it doesn't look stupid
 
 function step3(props) {
   // order overview responsiveness

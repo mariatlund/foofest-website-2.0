@@ -14,7 +14,8 @@ function step4(props) {
   const router = useRouter();
 
   // BUTTONS - send reservation request & reroute
-  async function confirm() {
+  async function confirm(e) {
+    e.preventDefault();
     const request = await fetch("http://localhost:8080/fullfill-reservation", {
       method: "POST",
       headers: {
@@ -99,44 +100,44 @@ function step4(props) {
         <h5>Please enter your payment information.</h5>
         <div className="payment-field">
           <h3>Credit Card Details</h3>
-          <form>
+          <form onSubmit={confirm}>
             <div>
               <label htmlFor="form-name">
                 Name On Card
-                <input required type="text" name="name" id="form-name" placeholder="John Appleseed" />
+                <input title="Must be a valid name" required pattern="[A-Za-z]{1,50}" aria-required="true" type="text" name="name" id="form-name" placeholder="John Appleseed" />
               </label>
             </div>
             <div>
               <label htmlFor="form-card">
                 Card Number
-                <InputMask required mask="9999 9999 9999 9999" maskChar={null} placeholder={"1234 1234 1234 1234"} name="cardNo" id="form-cardNo" onBlur={props.verify} />
+                <InputMask title="Must be a valid card number" aria-required="true" required mask="9999 9999 9999 9999" maskChar={null} placeholder={"1234 1234 1234 1234"} name="cardNo" id="form-cardNo" onBlur={props.verify} />
               </label>
 
               <label htmlFor="form-expiry">
                 Expiry Date
-                <InputMask required mask="99/99" maskChar={null} placeholder={"12/34"} name="expiry" id="form-expiry" onBlur={props.verify} />
+                <InputMask title="Must be a valid expiry date" aria-required="true" required mask="99/99" maskChar={null} placeholder={"12/34"} name="expiry" id="form-expiry" onBlur={props.verify} />
               </label>
 
               <label htmlFor="form-cvc">
                 CVC Number
-                <input required type="text" name="cvc" id="form-cvc" inputMode="numeric" maxLength="3" onBlur={props.verify} placeholder={123} />
+                <input title="Myst be a valid CVC number" aria-required="true" required type="text" name="cvc" id="form-cvc" inputMode="numeric" maxLength="3" onBlur={props.verify} placeholder={123} />
               </label>
             </div>
             <div>
               <label htmlFor="form-email">
                 Email
-                <input required type="email" name="email" id="form-email" onBlur={props.verify} placeholder={"beep@boop.com"} />
+                <input title="Must be a valid email" aria-required="true" required type="email" name="email" id="form-email" onBlur={props.verify} placeholder={"john@appleseed.com"} />
               </label>
 
               <label htmlFor="form-phone">
                 Phone number
-                <InputMask mask="99 99 99 99" maskChar={null} required type="text" name="phone" id="form-phone" placeholder={"12 34 56 78"} />
+                <InputMask title="Must be a valid phone number" aria-required="true" mask="99 99 99 99" maskChar={null} required type="text" name="phone" id="form-phone" placeholder={"12 34 56 78"} />
               </label>
             </div>
             <div>
               <label htmlFor="form-address">
                 Billing Address
-                <textarea required name="address" id="form-address" placeholder="Pearstreet 72, 2020 London" />
+                <textarea title="Must be a valid address" aria-required="true" required name="address" id="form-address" placeholder="Pearstreet 72, 2020 London" />
               </label>
             </div>
           </form>
@@ -151,7 +152,7 @@ function step4(props) {
         <button className="secondary" onClick={goBack}>
           Back
         </button>
-        <button type="submit" className="primary" onClick={confirm}>
+        <button type="submit" className="primary">
           Continue to payment →
         </button>
       </div>
