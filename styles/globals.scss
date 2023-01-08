@@ -91,16 +91,27 @@ h5 {
     color: #fff;
     text-align: center;
     display: inline-block;
+    margin-inline: 3rem;
   }
 
-  .textImage {
+  .smallImage {
     position: absolute;
-    width: 120%;
-    height: 90%;
-    top: -10%;
-    left: -10%;
+    width: 60rem;
+    height: 60rem;
+    top: -12rem;
+    left: -5rem;
     mix-blend-mode: darken;
-    animation: orbit 15s infinite linear;
+    animation: orbit 8s infinite linear;
+  }
+
+  .bigImage {
+    position: absolute;
+    width: 100rem;
+    height: 100rem;
+    top: -15rem;
+    left: -5rem;
+    mix-blend-mode: darken;
+    animation: orbit 8s infinite linear;
   }
 }
 
@@ -736,16 +747,6 @@ select {
     .SplashContainer {
       h1 {
         font-size: 11rem;
-      }
-
-      .textImage {
-        position: absolute;
-        width: 170%;
-        height: 190%;
-        top: -45%;
-        left: -35%;
-        mix-blend-mode: darken;
-        animation: orbit 8s infinite linear;
       }
     }
   }
