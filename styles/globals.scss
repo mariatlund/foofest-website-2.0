@@ -73,9 +73,34 @@ h5 {
 
 // LANDING PAGE SPLASH/HERO
 
+.hero {
+  width: 100%;
+  height: 90vh;
+  display: flex;
+  flex-direction: column;
+  // justify-content: space-around;
+
+  .hero-text {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 1rem;
+    margin-inline: 2rem;
+
+    h2 {
+      margin-top: 0.5rem;
+    }
+
+    h5 {
+      text-transform: uppercase;
+      rotate: -90deg;
+      margin-bottom: 4.5rem;
+      margin-right: -3rem;
+    }
+  }
+}
+
 .SplashContainer {
-  // height: 90vh;
-  // max-width: fit-content;
   width: 100%;
   height: 90vh;
   display: grid;
@@ -84,7 +109,6 @@ h5 {
   position: relative;
   overflow: hidden;
   background-color: $black;
-  object-fit: cover;
 
   h1 {
     font-size: 6rem;
@@ -96,22 +120,25 @@ h5 {
 
   .smallImage {
     position: absolute;
-    width: 60rem;
-    height: 60rem;
-    top: -12rem;
-    left: -5rem;
+    width: 160%;
+    height: 160%;
+    top: -30%;
+    left: -30%;
     mix-blend-mode: darken;
     animation: orbit 8s infinite linear;
+    object-fit: contain;
   }
 
   .bigImage {
     position: absolute;
-    width: 100rem;
-    height: 100rem;
-    top: -15rem;
-    left: -5rem;
+    aspect-ratio: 1/1;
+    width: 300%;
+    height: 300%;
+    top: -50%;
+    left: -100%;
     mix-blend-mode: darken;
     animation: orbit 8s infinite linear;
+    object-fit: contain;
   }
 }
 
@@ -375,20 +402,23 @@ section {
 // HEADLINERS
 .headliners {
   padding-inline: 2rem;
+  margin-top: 1rem;
+  border-top: $border;
 
   h2 {
-    margin-top: 0;
-    padding-top: 0.5rem;
+    // margin-top: 0;
+    // padding-top: 0.5rem;
   }
 }
 
 .headliners-container {
   width: 100%;
-  gap: 1rem;
+  gap: 3rem;
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
-  margin-top: 1rem;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
 }
 
 .headliner-box {
