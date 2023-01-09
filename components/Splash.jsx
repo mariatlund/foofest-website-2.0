@@ -17,10 +17,7 @@ function Splash() {
           <h3>January 2023</h3>
           <h2>Copenhagen</h2>
         </div>
-        <div className="lineup-sponsor">
-          <h4>Headliners & lineup ↓</h4>
-          <h5>Sponsored by KEA</h5>
-        </div>
+        <h5>Sponsored by KEA</h5>
       </div>
     </div>
   );
