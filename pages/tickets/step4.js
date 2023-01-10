@@ -82,7 +82,7 @@ function step4(props) {
 
               <label htmlFor="form-cvc">
                 CVC Number
-                <input title="Myst be a valid CVC number" aria-required="true" required type="text" name="cvc" id="form-cvc" inputMode="numeric" maxLength="3" placeholder={123} />
+                <input title="Must be a valid CVC number" aria-required="true" required type="text" name="cvc" id="form-cvc" inputMode="numeric" maxLength="3" placeholder={123} />
               </label>
             </div>
 

@@ -67,14 +67,14 @@ function step3(props) {
   return (
     <form onSubmit={submit} ref={theForm}>
       <div className="order-container">
-        <section className="order-interface">
+        <section className="order-interface scrollbox">
           <StepIndicator step={3} />
           <h2>Personal information</h2>
           <h5>We need some details about each person for the tickets.</h5>
 
-          {guestsArray.map((_, i) => (
-            <Accordion allowZeroExpanded key={i}>
-              <AccordionItem>
+          <Accordion allowZeroExpanded={true} allowMultipleExpanded={false} preExpanded={[0]}>
+            {guestsArray.map((_, i) => (
+              <AccordionItem key={i} uuid={i} className={"accordion-item"}>
                 <AccordionItemHeading>
                   <AccordionItemButton>
                     <h3 className="white">Ticket {i + 1}</h3>
@@ -105,8 +105,8 @@ function step3(props) {
                   </div>
                 </AccordionItemPanel>
               </AccordionItem>
-            </Accordion>
-          ))}
+            ))}
+          </Accordion>
         </section>
         {matches ? (
           <OrderOverview orderInfo={props.orderInfo} setOrderInfo={props.setOrderInfo} tentPrice={props.tentPrice} setUpPrice={props.setUpPrice} />

@@ -288,7 +288,7 @@ section {
 }
 
 // Accordions
-.accordion {
+.accordion-item {
   border: $border;
   padding: 1rem;
   margin-top: 1rem;
@@ -516,13 +516,29 @@ section {
   grid-template-columns: 1fr;
   padding: 1rem;
   padding-bottom: 2rem;
-  min-height: 90vh;
+  // height: 90vh;
 }
 
 .order-interface {
   padding-inline: 2rem;
   padding-top: 1rem;
   border: $border;
+  height: 88vh;
+}
+
+.scrollbox {
+  overflow-y: scroll;
+}
+
+body::-webkit-scrollbar {
+  width: 0.25rem;
+}
+body::-webkit-scrollbar-track {
+  background-color: $black;
+}
+body::-webkit-scrollbar-thumb {
+  background-color: $grey;
+  border-radius: 5px;
 }
 
 .bookingfee {
