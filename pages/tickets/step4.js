@@ -51,82 +51,45 @@ function step4(props) {
     router.push("/tickets/step3");
   }
 
-  // ---------- GARETH'S VERIFICATION ----------
-  // let cardFlag = false;
-  // let expiryFlag = false;
-  // let cvcFlag = false;
-  // let submitFlag = false;
-  // function verify(event) {
-  //   console.log("verification", "cardFlag: ", cardFlag, "expiryFlag: ", expiryFlag, "cvcFlag: ", cvcFlag, "submitFlag: ", submitFlag);
-
-  //   if (event.target.name === "cardNo") {
-  //     if (event.target.value.match(/^[0-9]{12}?$/)) {
-  //       cardFlag = true;
-  //     } else {
-  //       console.log("verification of card number failed: ", event.target.value);
-  //     }
-  //   } else if (event.target.name === "expiry") {
-  //     if (event.target.value.match(/^(0[1-9]|1[0-2])\/?([0-9]{4}|[0-9]{2})$/)) {
-  //       expiryFlag = true;
-  //     } else {
-  //       console.log("verification of expiry failed: ", event.target.value);
-  //     }
-  //   } else if (event.target.name === "cvc") {
-  //     if (event.target.value.match(/^[0-9]{3,4}$/)) {
-  //       cvcFlag = true;
-  //     } else {
-  //       console.log("verification of cvc failed: ", event.target.value);
-  //     }
-  //   }
-  // }
-
-  // function shallPass(event) {
-  //   event.preventDefault();
-  //   console.log("shallPass function run");
-  //   if (cardFlag && expiryFlag && cvcFlag) {
-  //     submitFlag = true;
-  //     console.log("passed");
-  //     console.log(submitFlag);
-  //   } else {
-  //     console.log("failed");
-  //   }
-  // }
-
   return (
-    <div className="order-container">
-      <section className="order-interface">
-        <StepIndicator step={4} />
-        <h2>Payment information</h2>
-        <h5>Please enter your payment information.</h5>
-        <div className="payment-field">
-          <h3>Credit Card Details</h3>
-          <form onSubmit={confirm}>
+    <form onSubmit={confirm}>
+      <div className="order-container">
+        <section className="order-interface">
+          <StepIndicator step={4} />
+          <h2>Payment information</h2>
+          <h5>Please enter your payment information.</h5>
+
+          <div className="payment-field">
+            <h3>Credit Card Details</h3>
+
             <div>
               <label htmlFor="form-name">
                 Name On Card
                 <input title="Must be a valid name" required pattern="[A-Za-z]{1,50}" aria-required="true" type="text" name="name" id="form-name" placeholder="John Appleseed" />
               </label>
             </div>
+
             <div>
               <label htmlFor="form-card">
                 Card Number
-                <InputMask title="Must be a valid card number" aria-required="true" required mask="9999 9999 9999 9999" maskChar={null} placeholder={"1234 1234 1234 1234"} name="cardNo" id="form-cardNo" onBlur={props.verify} />
+                <InputMask title="Must be a valid card number" aria-required="true" required mask="9999 9999 9999 9999" maskChar={null} placeholder={"1234 1234 1234 1234"} name="cardNo" id="form-cardNo" />
               </label>
 
               <label htmlFor="form-expiry">
                 Expiry Date
-                <InputMask title="Must be a valid expiry date" aria-required="true" required mask="99/99" maskChar={null} placeholder={"12/34"} name="expiry" id="form-expiry" onBlur={props.verify} />
+                <InputMask title="Must be a valid expiry date" aria-required="true" required mask="99/99" maskChar={null} placeholder={"12/34"} name="expiry" id="form-expiry" />
               </label>
 
               <label htmlFor="form-cvc">
                 CVC Number
-                <input title="Myst be a valid CVC number" aria-required="true" required type="text" name="cvc" id="form-cvc" inputMode="numeric" maxLength="3" onBlur={props.verify} placeholder={123} />
+                <input title="Myst be a valid CVC number" aria-required="true" required type="text" name="cvc" id="form-cvc" inputMode="numeric" maxLength="3" placeholder={123} />
               </label>
             </div>
+
             <div>
               <label htmlFor="form-email">
                 Email
-                <input title="Must be a valid email" aria-required="true" required type="email" name="email" id="form-email" onBlur={props.verify} placeholder={"john@appleseed.com"} />
+                <input title="Must be a valid email" aria-required="true" required type="email" name="email" id="form-email" placeholder={"john@appleseed.com"} />
               </label>
 
               <label htmlFor="form-phone">
@@ -134,29 +97,31 @@ function step4(props) {
                 <InputMask title="Must be a valid phone number" aria-required="true" mask="99 99 99 99" maskChar={null} required type="text" name="phone" id="form-phone" placeholder={"12 34 56 78"} />
               </label>
             </div>
+
             <div>
               <label htmlFor="form-address">
                 Billing Address
                 <textarea title="Must be a valid address" aria-required="true" required name="address" id="form-address" placeholder="Pearstreet 72, 2020 London" />
               </label>
             </div>
-          </form>
+          </div>
+        </section>
+
+        {matches ? (
+          <OrderOverview orderInfo={props.orderInfo} setOrderInfo={props.setOrderInfo} tentPrice={props.tentPrice} setUpPrice={props.setUpPrice} />
+        ) : (
+          <MobileOrderOverview orderInfo={props.orderInfo} tentPrice={props.tentPrice} setUpPrice={props.setUpPrice} />
+        )}
+        <div className="booking-steps-buttons">
+          <button className="secondary" onClick={goBack}>
+            Back
+          </button>
+          <button type="submit" className="primary">
+            Continue to payment →
+          </button>
         </div>
-      </section>
-      {matches ? (
-        <OrderOverview orderInfo={props.orderInfo} setOrderInfo={props.setOrderInfo} tentPrice={props.tentPrice} setUpPrice={props.setUpPrice} />
-      ) : (
-        <MobileOrderOverview orderInfo={props.orderInfo} tentPrice={props.tentPrice} setUpPrice={props.setUpPrice} />
-      )}
-      <div className="booking-steps-buttons">
-        <button className="secondary" onClick={goBack}>
-          Back
-        </button>
-        <button type="submit" className="primary">
-          Continue to payment →
-        </button>
       </div>
-    </div>
+    </form>
   );
 }
 
