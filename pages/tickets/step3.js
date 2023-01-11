@@ -30,6 +30,8 @@ function step3(props) {
   const theForm = useRef(null);
   const ticketHolders = [];
   const guestsArray = [...Array(props.orderInfo.totalTickets)];
+  const regularTicketsArr = [...Array(props.orderInfo.regTickets)];
+  const vipTicketsArr = [...Array(props.orderInfo.vipTickets)];
 
   async function submit(e) {
     e.preventDefault();
@@ -72,14 +74,47 @@ function step3(props) {
           <h2>Personal information</h2>
           <h5>We need some details about each person for the tickets.</h5>
 
-          <Accordion allowZeroExpanded={true} allowMultipleExpanded={false} preExpanded={[0]}>
-            {guestsArray.map((_, i) => (
-              <AccordionItem key={i} uuid={i} className={"accordion-item"}>
+          <Accordion allowZeroExpanded={true} allowMultipleExpanded={false} preExpanded={["reg0"]}>
+            {regularTicketsArr.map((_, i) => (
+              <AccordionItem key={`reg${i}`} uuid={`reg${i}`} className={"accordion-item"}>
                 <AccordionItemHeading>
                   <AccordionItemButton>
                     <h3 className="white">Ticket {i + 1}</h3>
                     <div className="dropdown">
                       <h3>Regular ticket</h3>
+                      <h4 className="dropdown-arrow">‹</h4>
+                    </div>
+                  </AccordionItemButton>
+                </AccordionItemHeading>
+                <AccordionItemPanel>
+                  <div className="accordion-field">
+                    <label>
+                      First name
+                      <input title="Must be a valid First name" required pattern="[A-Za-z]{1,50}" aria-required="true" type="text" name="firstName" placeholder="John" />
+                    </label>
+                    <label>
+                      Last name
+                      <input title="Must be a valid Last name" required pattern="[A-Za-z]{1,40}" aria-required="true" type="text" name="lastName" placeholder="Applebaum" />
+                    </label>
+                    <label>
+                      Phone Number
+                      <input title="Must be a valid phone number" required pattern="[0-9+]{8,18}" aria-required="true" type="text" name="telephone" placeholder="42386489" maxLength={8} />
+                    </label>
+                    <label>
+                      Date of Birth
+                      <input title="Must be a valid Date of birth" required pattern="[0-9]" aria-required="true" type="date" name="birthDate" />
+                    </label>
+                  </div>
+                </AccordionItemPanel>
+              </AccordionItem>
+            ))}
+            {vipTicketsArr.map((_, i) => (
+              <AccordionItem key={`vip${i}`} uuid={`vip${i}`} className={"accordion-item"}>
+                <AccordionItemHeading>
+                  <AccordionItemButton>
+                    <h3 className="white">Ticket {i + 1}</h3>
+                    <div className="dropdown">
+                      <h3>VIP ticket</h3>
                       <h4 className="dropdown-arrow">‹</h4>
                     </div>
                   </AccordionItemButton>

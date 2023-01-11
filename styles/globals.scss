@@ -230,7 +230,7 @@ footer {
 .booking-steps-buttons {
   display: flex;
   justify-content: space-between;
-  margin: 1rem;
+  margin-top: 1rem;
   align-items: flex-end;
 }
 
@@ -516,14 +516,13 @@ section {
   grid-template-columns: 1fr;
   padding: 1rem;
   padding-bottom: 2rem;
-  // height: 90vh;
 }
 
 .order-interface {
   padding-inline: 2rem;
   padding-top: 1rem;
   border: $border;
-  height: 88vh;
+  // height: 100%;
 }
 
 .scrollbox {
@@ -677,9 +676,14 @@ select {
   right: 0;
 
   section {
-    border-color: $grey;
+    // border-color: $grey;
     padding: 0.5rem;
     padding-inline: 0;
+    border-style: solid;
+    border-width: 1px;
+    border-color: $grey;
+    border-inline: none;
+    border-top: none;
   }
 
   .overview-item {
@@ -687,6 +691,13 @@ select {
     justify-content: space-between;
     padding: 1rem;
     padding-inline: 0;
+  }
+
+  .order-overview-total {
+    border: none;
+    h4:nth-child(2) {
+      color: $orange;
+    }
   }
 }
 
@@ -797,6 +808,10 @@ form {
       }
     }
   }
+
+  .order-container {
+    height: 90vh;
+  }
 }
 
 @media screen and (min-width: 1100px) {
@@ -821,6 +836,7 @@ form {
   .booking-steps-buttons {
     grid-column: 2 / -1;
     grid-row: 2 / -1;
+    margin: 1rem;
   }
 
   .drop-box {
