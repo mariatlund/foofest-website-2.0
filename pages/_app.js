@@ -85,9 +85,27 @@ function MyApp({ Component, pageProps }) {
     console.log("orderID is set to:", orderInfo.orderID);
   }
 
+  // reset order info object
+  function resetOrderInfo() {
+    setOrderInfo({
+      ...orderInfo,
+      vipTickets: 0,
+      regTickets: 0,
+      totalTickets: 0,
+
+      selectedArea: "",
+      tentService: false,
+      greenCamping: false,
+      totalCost: 0,
+      validates: null,
+      orderID: "",
+      guests: [],
+    });
+  }
+
   return (
     <>
-      <Layout>
+      <Layout resetOrderInfo={resetOrderInfo}>
         <Component
           updateRegTickets={updateRegTickets}
           updateVIPTickets={updateVIPTickets}
