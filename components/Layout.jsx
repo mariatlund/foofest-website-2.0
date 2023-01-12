@@ -4,7 +4,7 @@ import Footer from "./Footer";
 import Head from "next/head";
 import favicon from "../assets/foofest-favicon.png";
 
-function Layout({ children }) {
+function Layout({ children, resetOrderInfo }) {
   return (
     <>
       <Head>
@@ -12,7 +12,7 @@ function Layout({ children }) {
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
         <link rel="shortcut icon" type="image/jpg" src={favicon} />
       </Head>
-      <Nav />
+      <Nav resetOrderInfo={resetOrderInfo} />
       <main>{children}</main>
       <Footer />
     </>

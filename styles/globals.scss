@@ -230,7 +230,7 @@ footer {
 .booking-steps-buttons {
   display: flex;
   justify-content: space-between;
-  margin: 1rem;
+  margin-top: 1rem;
   align-items: flex-end;
 }
 
@@ -288,7 +288,7 @@ section {
 }
 
 // Accordions
-.accordion {
+.accordion-item {
   border: $border;
   padding: 1rem;
   margin-top: 1rem;
@@ -365,27 +365,24 @@ section {
   padding-bottom: 1.5rem;
   display: grid;
   row-gap: 1rem;
-  form {
-    display: flex;
-    flex-direction: column;
-    row-gap: 1rem;
-    div {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 1rem;
-      label {
-        display: flex;
-        flex-direction: column;
-        row-gap: 0.25rem;
 
-        span {
-          position: relative;
-          color: $grey;
-          align-self: center;
-        }
+  div {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    label {
+      display: flex;
+      flex-direction: column;
+      row-gap: 0.25rem;
+
+      span {
+        position: relative;
+        color: $grey;
+        align-self: center;
       }
     }
   }
+
   input,
   textarea {
     background-color: $black;
@@ -404,11 +401,6 @@ section {
   padding-inline: 2rem;
   margin-top: 1rem;
   border-top: $border;
-
-  h2 {
-    // margin-top: 0;
-    // padding-top: 0.5rem;
-  }
 }
 
 .headliners-container {
@@ -524,13 +516,28 @@ section {
   grid-template-columns: 1fr;
   padding: 1rem;
   padding-bottom: 2rem;
-  min-height: 90vh;
 }
 
 .order-interface {
   padding-inline: 2rem;
   padding-top: 1rem;
   border: $border;
+  // height: 100%;
+}
+
+.scrollbox {
+  overflow-y: scroll;
+}
+
+body::-webkit-scrollbar {
+  width: 0.25rem;
+}
+body::-webkit-scrollbar-track {
+  background-color: $black;
+}
+body::-webkit-scrollbar-thumb {
+  background-color: $grey;
+  border-radius: 5px;
 }
 
 .bookingfee {
@@ -669,9 +676,14 @@ select {
   right: 0;
 
   section {
-    border-color: $grey;
+    // border-color: $grey;
     padding: 0.5rem;
     padding-inline: 0;
+    border-style: solid;
+    border-width: 1px;
+    border-color: $grey;
+    border-inline: none;
+    border-top: none;
   }
 
   .overview-item {
@@ -679,6 +691,13 @@ select {
     justify-content: space-between;
     padding: 1rem;
     padding-inline: 0;
+  }
+
+  .order-overview-total {
+    border: none;
+    h4:nth-child(2) {
+      color: $orange;
+    }
   }
 }
 
@@ -731,6 +750,15 @@ select {
   row-gap: 0.5rem;
 }
 
+// VALIDATION FEEDBACK - FORM FIELDS
+form {
+  input:focus,
+  textarea:focus {
+    outline: none;
+    border-color: $orange;
+  }
+}
+
 // FEEDBACK PAGES
 .center-container {
   width: 100%;
@@ -780,6 +808,10 @@ select {
       }
     }
   }
+
+  .order-container {
+    height: 90vh;
+  }
 }
 
 @media screen and (min-width: 1100px) {
@@ -804,6 +836,7 @@ select {
   .booking-steps-buttons {
     grid-column: 2 / -1;
     grid-row: 2 / -1;
+    margin: 1rem;
   }
 
   .drop-box {
