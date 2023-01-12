@@ -25,29 +25,29 @@ export default function Home(props) {
     }
   });
 
-  // FILTERING
-  function setFilter(event) {
-    const filter = event.target.value;
-    setLineupSettings({ ...lineupSettings, filterBy: filter });
-    console.log("setFilter:", filter);
-    filterList();
-  }
+  // // FILTERING
+  // function setFilter(event) {
+  //   const filter = event.target.value;
+  //   setLineupSettings({ ...lineupSettings, filterBy: filter });
+  //   console.log("setFilter:", filter);
+  //   filterList();
+  // }
 
-  function filterList() {
-    let filteredLineup = [];
-    lineup.forEach((band) => {
-      if (band.genre === lineupSettings.filterBy) {
-        filteredLineup.push(band);
-      }
-    });
-    setLineupSettings({ ...lineupSettings, activeArray: filteredLineup });
-  }
+  // function filterList() {
+  //   let filteredLineup = [];
+  //   lineup.forEach((band) => {
+  //     if (band.genre === lineupSettings.filterBy) {
+  //       filteredLineup.push(band);
+  //     }
+  //   });
+  //   setLineupSettings({ ...lineupSettings, activeArray: filteredLineup });
+  // }
 
   return (
     <>
       <Splash />
       <Headliners />
-      <Lineup lineup={props.lineupData} setFilter={setFilter} activeArray={lineupSettings.activeArray} />
+      <Lineup lineup={props.lineupData} activeArray={lineupSettings.activeArray} />
     </>
   );
 }
@@ -60,14 +60,3 @@ export async function getServerSideProps() {
     props: { lineupData },
   };
 }
-
-/*
-// FETCTHING AREA DATA
-export async function getServerSideProps() {
-  const res = await fetch("http://localhost:8080/available-spots");
-  const areaData = await res.json();
-  return {
-    props: { areaData },
-  };
-}
-*/
