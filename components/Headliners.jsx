@@ -18,13 +18,13 @@ function Headliners() {
       </div> */}
       {/* <div className="carousel"> */}
       <div className="container">
-        <input type="radio" name="slider" id="item-1" checked />
-        <input type="radio" name="slider" id="item-2" checked />
-        <input type="radio" name="slider" id="item-3" checked />
+        <input type="radio" name="slider" id="item-1" checked readOnly />
+        <input type="radio" name="slider" id="item-2" checked readOnly />
+        <input type="radio" name="slider" id="item-3" checked readOnly />
 
         <div className="cards">
-          <label className="card" for="item-1" id="song-1">
-            <img src="https://cdn.smehost.net/2020sonymusiccouk-ukprod/wp-content/uploads/2019/12/mfn-tool.jpg" alt="song" />
+          <label className="card" htmlFor="item-1" id="song-1">
+            <img src="https://cdn.smehost.net/2020sonymusiccouk-ukprod/wp-content/uploads/2019/12/mfn-tool.jpg" alt="Tool" />
             <h2>Tool</h2>
             <iframe
               title="Tool - The Pot"
@@ -36,8 +36,8 @@ function Headliners() {
               loading="lazy"
             ></iframe>
           </label>
-          <label className="card" for="item-2" id="song-2">
-            <img src="https://www.rollingstone.com/wp-content/uploads/2020/10/10025-01E-JC-white_group_4559_sRGB.jpg?w=1581&h=1054&crop=1" alt="song" />
+          <label className="card" htmlFor="item-2" id="song-2">
+            <img src="https://www.rollingstone.com/wp-content/uploads/2020/10/10025-01E-JC-white_group_4559_sRGB.jpg?w=1581&h=1054&crop=1" alt="AC/DC" />
             <h2>AC/DC</h2>
             <iframe
               title="AC/DC - Back In Black"
@@ -49,8 +49,8 @@ function Headliners() {
               loading="lazy"
             ></iframe>
           </label>
-          <label className="card" for="item-3" id="song-3">
-            <img src="https://www.billboard.com/wp-content/uploads/2020/05/03-metallica-press-2018-cr-Ross-Halfin-b-billboard-1548-1589834861.jpg" alt="song" />
+          <label className="card" htmlFor="item-3" id="song-3">
+            <img src="https://www.billboard.com/wp-content/uploads/2020/05/03-metallica-press-2018-cr-Ross-Halfin-b-billboard-1548-1589834861.jpg" alt="Metallica" />
             <h2>Metallica</h2>
             <iframe
               title="Metallica - Nothing Else Matters"

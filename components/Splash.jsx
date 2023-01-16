@@ -10,7 +10,7 @@ function Splash() {
     <div className="hero">
       <section className="SplashContainer">
         <h1>The best damned festival</h1>
-        {matches ? <Image src={textImage} className={"smallImage"} width={"1164"} height={"1164"} /> : <Image src={textImage} className={"bigImage"} width={"1164"} height={"1164"} />}
+        {matches ? <Image src={textImage} alt={"Colour background"} className={"smallImage"} width={"1164"} height={"1164"} /> : <Image src={textImage} alt={"Colour background"} className={"bigImage"} width={"1164"} height={"1164"} />}
       </section>
       <div className="hero-text">
         <div className="date-location">

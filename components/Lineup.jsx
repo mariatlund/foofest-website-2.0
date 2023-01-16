@@ -88,17 +88,17 @@ function Lineup(props) {
       <section className="lineup-list">
         <div className="primary-bands">
           {lineupTop.map((band) => (
-            <h2>{band.name}</h2>
+            <h2 key={`primary-${band.name}`}>{band.name}</h2>
           ))}
         </div>
         <div className="secondary-bands">
           {lineupMiddle.map((band) => (
-            <h3>{band}</h3>
+            <h3 key={`secondary-${band}`}>{band}</h3>
           ))}
         </div>
         <div className="tertiary-bands">
           {lineupBottom.map((band) => (
-            <h4>{band.name}</h4>
+            <h4 key={`tertiary-${band.name}`}>{band.name}</h4>
           ))}
         </div>
 
