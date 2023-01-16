@@ -397,87 +397,146 @@ section {
 }
 
 // HEADLINERS
+
 .headliners {
   padding-inline: 2rem;
   margin-top: 1rem;
   border-top: $border;
-}
-
-.headliners-container {
-  width: 100%;
-  gap: 3rem;
+  height: 90vh;
   display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  margin-top: 2rem;
-  margin-bottom: 1rem;
-}
+  flex-direction: column;
+  align-items: center;
+  overflow: hidden;
 
-.headliner-box {
-  width: fit-content;
-  height: fit-content;
-  max-width: 25rem;
-  display: grid;
+  h3 {
+    color: $white;
+    margin-top: 1rem;
+    align-self: flex-start;
+  }
+  h5 {
+    color: $orange;
+    text-transform: uppercase;
+    align-self: flex-start;
+  }
 
-  .headliner-img {
-    aspect-ratio: 1/1;
+  input[type="radio"] {
+    display: none;
+  }
+  .card {
+    position: absolute;
+    max-width: 30rem;
+    left: 0;
+    right: 0;
+    margin: auto;
+    transition: transform 0.4s ease;
+    cursor: pointer;
+    display: grid;
+    gap: 1rem;
+    justify-items: center;
+
+    h2 {
+      position: absolute;
+      bottom: 6.5rem;
+      left: 1.5rem;
+      // font-family: $h1-font;
+      font-size: 3rem;
+      // color: $orange;
+    }
+  }
+  .container {
     width: 100%;
-    height: 100%;
+    // max-width: 90%;
+    transform-style: preserve-3d;
+    margin-top: 2rem;
+  }
+  .cards {
+    // position: relative;
+    // width: 100%;
+    // height: 100%;
+    // margin-bottom: 20px;
+    // justify-self: center;
+    // align-self: center;
+  }
+  img {
+    width: 100%;
+    aspect-ratio: 1/1;
+    border-radius: 2px;
     object-fit: cover;
   }
 
-  .headliner-card-titles {
-    display: flex;
-    justify-content: space-between;
-    margin: 0.5rem;
-    align-items: center;
+  #item-1:checked ~ .cards #song-3,
+  #item-2:checked ~ .cards #song-1,
+  #item-3:checked ~ .cards #song-2 {
+    transform: translatex(-60%) scale(0.8);
+    opacity: 0.4;
+    z-index: 0;
   }
-
-  h4 {
-    color: $grey;
+  #item-1:checked ~ .cards #song-2,
+  #item-2:checked ~ .cards #song-3,
+  #item-3:checked ~ .cards #song-1 {
+    transform: translatex(60%) scale(0.8);
+    opacity: 0.4;
+    z-index: 0;
   }
+  #item-1:checked ~ .cards #song-1,
+  #item-2:checked ~ .cards #song-2,
+  #item-3:checked ~ .cards #song-3 {
+    transform: translatex(0) scale(1);
+    opacity: 1;
+    z-index: 1;
 
-  p {
-    margin: 1rem;
-  }
-
-  iframe {
-    justify-self: center;
-    margin-bottom: 1rem;
+    img {
+      box-shadow: 0px 0px 5px 0px rgba(81, 81, 81, 0.47);
+    }
   }
 }
 
-// LINEUP
-
-// .lineup-menu {
-//   padding-bottom: 2rem;
-//   padding-inline: 2rem;
-//   border: $border;
-//   border-inline: none;
+// OLD HEADLINERS STYLING
+// .headliners-container {
+//   width: 100%;
+//   gap: 3rem;
+//   display: flex;
+//   justify-content: center;
+//   flex-wrap: wrap;
+//   margin-top: 2rem;
+//   margin-bottom: 1rem;
 // }
 
-// .lineup-menu-actions {
+// .headliner-box {
+//   width: fit-content;
+//   height: fit-content;
+//   max-width: 25rem;
 //   display: grid;
 
-//   label {
-//     text-transform: uppercase;
+//   .headliner-img {
+//     aspect-ratio: 1/1;
+//     width: 100%;
+//     height: 100%;
+//     object-fit: cover;
 //   }
 
-//   select {
-//     color: $white;
-//     background-color: $black;
-//     border: $border;
-//     padding: 0.5rem;
-//     margin-top: 0.5rem;
-//     margin-bottom: 0.5rem;
-//     text-transform: uppercase;
+//   .headliner-card-titles {
+//     display: flex;
+//     justify-content: space-between;
+//     margin: 0.5rem;
+//     align-items: center;
 //   }
 
-//   option {
-//     text-transform: uppercase;
-//     // not working for some reason?
+//   h4 {
+//     color: $grey;
+//   }
+
+//   p {
+//     margin: 1rem;
+//   }
+
+//   iframe {
+//     justify-self: center;
+//     margin-bottom: 1rem;
 //   }
 // }
+
+// LINEUP
 
 .lineup {
   border-top: $border;
