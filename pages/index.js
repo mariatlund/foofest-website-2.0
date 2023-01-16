@@ -54,7 +54,7 @@ export default function Home(props) {
 
 // FETCHING LINEUP DATA
 export async function getServerSideProps() {
-  const res = await fetch("http://localhost:8080/bands");
+  const res = await fetch("https://morning-mountain-4570.fly.dev/bands");
   const lineupData = await res.json();
   return {
     props: { lineupData },
