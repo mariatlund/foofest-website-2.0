@@ -825,7 +825,9 @@ select {
     border-style: solid;
     border-width: 1px;
     border-color: $grey;
-    border-inline: none;
+    // border-inline: none;
+    border-right: none;
+    border-left: none;
     border-top: none;
   }
 
